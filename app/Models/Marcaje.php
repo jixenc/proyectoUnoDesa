@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Marcaje extends Model
 {
     use HasFactory;
+    protected $fillable = ['m_codigo','hora'];
 }

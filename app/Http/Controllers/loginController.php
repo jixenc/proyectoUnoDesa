@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Empleado;
 use Illuminate\Http\Request;
 
-class EmpleadoController extends Controller
+class loginController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +13,7 @@ class EmpleadoController extends Controller
      */
     public function index()
     {
-       $empleado = Empleado::all();
-       return $empleado;
+        //
     }
 
     /**
@@ -36,12 +34,7 @@ class EmpleadoController extends Controller
      */
     public function store(Request $request)
     {
-        $empleado = new Empleado ();
-        $empleado -> codigo = $request -> codigo;
-        $empleado -> nombres = $request -> nombres;
-        $empleado -> apellidos = $request -> apellidos;
-
-        $empleado -> save();
+        //
     }
 
     /**
@@ -73,15 +66,9 @@ class EmpleadoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
-        $empleado = Empleado::findOrFail($request->id);
-        $empleado -> codigo = $request -> codigo;
-        $empleado -> nombres = $request -> nombres;
-        $empleado -> apellidos = $request -> apellidos;
-
-        $empleado -> save();
-        return $empleado;
+        //
     }
 
     /**
@@ -90,10 +77,8 @@ class EmpleadoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($request)
+    public function destroy($id)
     {
-        $empleado = Empleado::destroy($request->id);
-      
-        return  $empleado;
+        //
     }
 }

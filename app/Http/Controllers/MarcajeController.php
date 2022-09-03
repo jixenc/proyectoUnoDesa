@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Empleado;
+use App\Models\Marcaje;
 use Illuminate\Http\Request;
 
-class EmpleadoController extends Controller
+class MarcajeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class EmpleadoController extends Controller
      */
     public function index()
     {
-       $empleado = Empleado::all();
-       return $empleado;
+        $marcaje = Marcaje::all();
+        return $marcaje;
     }
 
     /**
@@ -25,7 +25,7 @@ class EmpleadoController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -36,12 +36,11 @@ class EmpleadoController extends Controller
      */
     public function store(Request $request)
     {
-        $empleado = new Empleado ();
-        $empleado -> codigo = $request -> codigo;
-        $empleado -> nombres = $request -> nombres;
-        $empleado -> apellidos = $request -> apellidos;
+        $marcaje = new Marcaje ();
+        $marcaje -> m_codigo = $request -> m_codigo;
+        $marcaje -> hora = $request -> hora;
 
-        $empleado -> save();
+        $marcaje -> save();
     }
 
     /**
@@ -73,15 +72,14 @@ class EmpleadoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
-        $empleado = Empleado::findOrFail($request->id);
-        $empleado -> codigo = $request -> codigo;
-        $empleado -> nombres = $request -> nombres;
-        $empleado -> apellidos = $request -> apellidos;
+        $marcaje = Marcaje::findOrFail($request->id);
+        $marcaje -> m_codigo = $request -> m_codigo;
+        $marcaje -> horario = $request -> horario;
 
-        $empleado -> save();
-        return $empleado;
+        $marcaje -> save();
+        return $marcaje;
     }
 
     /**
@@ -92,8 +90,8 @@ class EmpleadoController extends Controller
      */
     public function destroy($request)
     {
-        $empleado = Empleado::destroy($request->id);
+        $marcaje = Marcaje::destroy($request->id);
       
-        return  $empleado;
+        return  $marcaje;
     }
 }
